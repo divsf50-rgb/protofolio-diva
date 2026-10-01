@@ -1,0 +1,837 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DIVA ASOFA | My Portfolio</title>
+
+    <meta name="description" content="Website portofolio pribadi Diva Asofa dengan desain pink gradasi.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #54243f;
+            background: linear-gradient(135deg, #fff7fb, #fce7f3, #f3e8ff);
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* NAVBAR DAN LOGO */
+
+        header {
+            width: 100%;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 20px rgba(219, 39, 119, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #be185d;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: #fce7f3;
+        }
+
+        .logo-fallback {
+            width: 48px;
+            height: 48px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ec4899, #a78bfa);
+            border-radius: 50%;
+            color: white;
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .logo-text span {
+            color: #ec4899;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #70445e;
+            font-size: 13px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ec4899;
+        }
+
+        nav .contact-link {
+            background: linear-gradient(120deg, #ec4899, #be185d);
+            color: white;
+            padding: 11px 20px;
+            border-radius: 25px;
+        }
+
+        .menu-toggle {
+            display: none;
+            border: none;
+            background: none;
+            color: #be185d;
+            font-size: 26px;
+            cursor: pointer;
+        }
+
+        /* BAGIAN BERANDA */
+
+        .hero {
+            min-height: 88vh;
+            padding: 75px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 45px;
+        }
+
+        .hero-text {
+            max-width: 580px;
+        }
+
+        .badge {
+            display: inline-block;
+            color: #be185d;
+            background: white;
+            border: 1px solid #fbcfe8;
+            padding: 10px 16px;
+            border-radius: 30px;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5vw, 65px);
+            line-height: 1.2;
+            margin: 23px 0 15px;
+            letter-spacing: -2px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(120deg, #ec4899, #be185d, #a78bfa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero h2 {
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            margin-top: 20px;
+            color: #806079;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+            margin-top: 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 23px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px #be185d30;
+        }
+
+        .btn-primary {
+            background: linear-gradient(120deg, #ec4899, #be185d);
+            color: white;
+        }
+
+        .btn-secondary {
+            border: 1px solid #f9a8d4;
+            color: #be185d;
+            background: white;
+        }
+
+        /* FOTO PROFIL */
+
+        .hero-visual {
+            width: 320px;
+            height: 350px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .profile-circle {
+            width: 270px;
+            height: 300px;
+            border-radius: 45% 45% 25px 25px;
+            overflow: hidden;
+            background: linear-gradient(145deg, #f9a8d4, #c4b5fd);
+            border: 7px solid white;
+            box-shadow: 0 20px 50px #be185d25;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .profile-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-fallback {
+            width: 100%;
+            height: 100%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 65px;
+            font-weight: 800;
+        }
+
+        .floating {
+            position: absolute;
+            background: white;
+            padding: 12px 17px;
+            border-radius: 15px;
+            color: #be185d;
+            font-size: 11px;
+            font-weight: 700;
+            box-shadow: 0 10px 25px #be185d20;
+        }
+
+        .float-one {
+            top: 20px;
+            right: -5px;
+            transform: rotate(5deg);
+        }
+
+        .float-two {
+            bottom: 25px;
+            left: -10px;
+            transform: rotate(-5deg);
+        }
+
+        /* UMUM */
+
+        section:not(.hero) {
+            padding: 85px 9%;
+            scroll-margin-top: 80px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .eyebrow {
+            color: #be185d;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(30px, 4vw, 42px);
+            margin: 12px 0;
+        }
+
+        .section-heading p {
+            color: #806079;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* TENTANG AKU */
+
+        .about {
+            background: rgba(255, 255, 255, 0.45);
+        }
+
+        .about-content {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content h3 {
+            font-size: 25px;
+            margin-bottom: 18px;
+        }
+
+        .about-content p {
+            color: #806079;
+            font-size: 13px;
+            line-height: 2;
+            margin-bottom: 15px;
+        }
+
+        .about-points {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .point {
+            padding: 14px 20px;
+            border-radius: 15px;
+            background: white;
+            color: #be185d;
+            font-size: 12px;
+            box-shadow: 0 8px 25px #be185d0c;
+        }
+
+        /* KEAHLIAN DAN PROYEK */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            padding: 27px 23px;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid white;
+            border-radius: 22px;
+            box-shadow: 0 10px 30px #be185d0d;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px #be185d20;
+        }
+
+        .card-icon {
+            width: 53px;
+            height: 53px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #fce7f3, #ede9fe);
+            border-radius: 16px;
+            font-size: 24px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            color: #be185d;
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #806079;
+            font-size: 12px;
+            line-height: 1.9;
+        }
+
+        .project-number {
+            display: inline-block;
+            color: #be185d;
+            background: #fce7f3;
+            border-radius: 10px;
+            padding: 8px 12px;
+            font-size: 12px;
+            margin-bottom: 18px;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: #be185d;
+            font-size: 12px;
+            font-weight: 700;
+            margin-top: 18px;
+        }
+
+        /* KONTAK */
+
+        .contact {
+            background: linear-gradient(135deg, #fce7f3, #ede9fe);
+        }
+
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+            padding: 40px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 15px 45px #be185d12;
+        }
+
+        .contact-box h2 {
+            font-size: 32px;
+            margin: 15px 0;
+        }
+
+        .contact-box p {
+            color: #806079;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .socials a {
+            padding: 10px 16px;
+            border: 1px solid #fbcfe8;
+            background: white;
+            color: #be185d;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: #fff8fc;
+        }
+
+        footer h3 {
+            color: #be185d;
+            font-size: 17px;
+        }
+
+        footer p {
+            color: #806079;
+            font-size: 11px;
+            margin-top: 10px;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* TAMPILAN HP */
+
+        @media (max-width: 850px) {
+            header {
+                padding: 14px 5%;
+            }
+
+            .hero {
+                padding: 65px 7%;
+                gap: 30px;
+            }
+
+            .hero-visual {
+                width: 280px;
+                margin: auto;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 25px;
+                background: #fff8fc;
+                flex-direction: column;
+                gap: 22px;
+                box-shadow: 0 10px 20px #be185d15;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .logo {
+                font-size: 17px;
+            }
+
+            .logo img,
+            .logo-fallback {
+                width: 42px;
+                height: 42px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 65px;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                margin-top: 20px;
+            }
+
+            .float-one {
+                right: -5px;
+            }
+
+            section:not(.hero) {
+                padding: 65px 6%;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-box {
+                padding: 28px 20px;
+            }
+
+            .contact-box h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER DAN LOGO -->
+    <header>
+        <a href="#home" class="logo">
+            <img
+                src="logo.jpg"
+                alt="Logo DIVA ASOFA"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+            >
+
+            <span class="logo-fallback">DA</span>
+
+            <span class="logo-text">DIVA <span>DEVELOPER</span></span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Buka menu" aria-expanded="false">☰</button>
+
+        <nav id="navMenu">
+            <a href="#home">Beranda</a>
+            <a href="#about">Tentang</a>
+            <a href="#skills">Keahlian</a>
+            <a href="#projects">Proyek</a>
+            <a href="#contact" class="contact-link">Kontak ↗</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- BERANDA -->
+        <section class="hero" id="home">
+            <div class="hero-text">
+                <span class="badge">♡ WELCOME TO MY PORTFOLIO</span>
+
+                <h1>
+                    Hai, aku <span class="gradient-text">Diva Asofa!</span>
+                </h1>
+
+                <h2>Student & Web Developer Pemula ✨</h2>
+
+                <p>
+                    Selamat datang di website portofolioku!
+                    Aku suka belajar teknologi, membuat website,
+                    dan mengubah ide menjadi karya digital yang menarik.
+                    Yuk, kenali aku dan karya-karyaku!
+                </p>
+
+                <div class="buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        Lihat Proyek ↗
+                    </a>
+
+                    <a href="#about" class="btn btn-secondary">
+                        Tentang Aku ♡
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="profile-circle">
+                    <img
+                        src="divaas.jpg"
+                        alt="Foto Diva Asofa"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                    >
+
+                    <div class="profile-fallback">DA ♡</div>
+                </div>
+
+                <div class="floating float-one">✦ Dream Big!</div>
+                <div class="floating float-two">Made with love ♡</div>
+            </div>
+        </section>
+
+        <!-- TENTANG -->
+        <section class="about" id="about">
+            <div class="section-heading">
+                <span class="eyebrow">GET TO KNOW ME</span>
+                <h2>Tentang <span class="gradient-text">Aku</span></h2>
+                <p>Senang berkenalan dengan kamu!</p>
+            </div>
+
+            <div class="about-content">
+                <h3>Belajar, berkarya, dan terus berkembang.</h3>
+
+                <p>
+                    Halo! Aku Diva Asofa. Aku tertarik dengan dunia
+                    teknologi, pemrograman, dan desain website.
+                    Saat ini aku sedang belajar membuat website yang
+                    cantik, responsif, dan mudah digunakan.
+                </p>
+
+                <p>
+                    Bagiku, setiap proyek adalah kesempatan untuk
+                    belajar hal baru, mengembangkan kreativitas,
+                    dan menghasilkan karya yang bermanfaat.
+                </p>
+
+                <div class="about-points">
+                    <div class="point">♡ Kreatif</div>
+                    <div class="point">✦ Suka Belajar</div>
+                    <div class="point">✿ Web Design</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KEAHLIAN -->
+        <section id="skills">
+            <div class="section-heading">
+                <span class="eyebrow">WHAT I AM LEARNING</span>
+                <h2>My <span class="gradient-text">Skills</span></h2>
+                <p>Beberapa kemampuan yang sedang aku kembangkan.</p>
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">🌐</div>
+                    <h3>HTML</h3>
+                    <p>Menyusun struktur halaman website agar teratur.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3>CSS</h3>
+                    <p>Membuat desain, warna, gradasi, dan animasi website.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>JavaScript</h3>
+                    <p>Menambahkan interaksi dan fitur pada website.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROYEK -->
+        <section id="projects">
+            <div class="section-heading">
+                <span class="eyebrow">MY CREATIVE WORK</span>
+                <h2>My <span class="gradient-text">Projects</span></h2>
+                <p>Contoh proyek website yang sedang aku kembangkan.</p>
+            </div>
+    <div class="cards">
+
+        <!-- PROJECT 01 -->
+        <div class="card">
+            <div class="project-number">PROJECT 01</div>
+
+            <h3>💗 DIVA-SKIN</h3>
+
+            <p>
+                Website toko skincare dengan katalog produk,
+                keranjang belanja, checkout, login, dan pesanan.
+            </p>
+
+            <a href="https://divsf50-rgb.github.io/didiv_skin/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="project-link">
+                Lihat Website ↗
+            </a>
+        </div>
+
+        <!-- PROJECT 02 -->
+        <div class="card">
+            <div class="project-number">PROJECT 02</div>
+
+            <h3>🏦 BPR SUPRA</h3>
+
+            <p>
+                Website profil perusahaan BPR Supra yang
+                menampilkan informasi dan layanan perusahaan.
+            </p>
+
+            <a href="https://divsf50-rgb.github.io/supra-div/"
+               class="project link">
+                Lihat Website ↗
+            </a>
+        </div>
+
+        <!-- PROJECT 03 -->
+        <div class="card">
+            <div class="project-number">PROJECT 03</div>
+
+            <h3>✨ Personal Portfolio</h3>
+
+            <p>
+                Website pribadi untuk menampilkan profil,
+                keahlian, dan hasil karya digital.
+            </p>
+
+            <a href="#home" class="project-link">
+                Lihat Beranda ↗
+            </a>
+        </div>
+
+    </div>
+</section>
+</div>
+        <!-- KONTAK -->
+        <section class="contact" id="contact">
+            <div class="contact-box">
+                <span class="eyebrow">LET'S CONNECT</span>
+
+                <h2>
+                    Let's Make Something
+                    <span class="gradient-text">Beautiful!</span>
+                </h2>
+
+                <p>
+                    Terima kasih sudah mengunjungi portofolioku.
+                    Jika ingin berkenalan atau membahas proyek,
+                    kamu bisa menghubungiku melalui tautan berikut.
+                </p>
+
+                <div class="socials">
+                    <a href="https://www.instagram.com/"
+                       target="_blank" rel="noopener noreferrer">
+                        Instagram ↗
+                    </a>
+
+                    <a href="https://github.com/"
+                       target="_blank" rel="noopener noreferrer">
+                        GitHub ↗
+                    </a>
+
+                    <a href="mailto: @divsf50.com">
+                        Email ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <h3>DIVA ASOFA ♡</h3>
+        <p>Dibuat dengan cinta, kreativitas, dan warna pink.</p>
+        <p>© <span id="year"></span> Diva Asofa. All rights reserved.</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navMenu = document.getElementById("navMenu");
+
+        menuToggle.addEventListener("click", function () {
+            const opened = navMenu.classList.toggle("active");
+
+            menuToggle.textContent = opened ? "✕" : "☰";
+            menuToggle.setAttribute("aria-expanded", String(opened));
+        });
+
+        navMenu.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navMenu.classList.remove("active");
+                menuToggle.textContent = "☰";
+                menuToggle.setAttribute("aria-expanded", "false");
+            });
+        });
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
